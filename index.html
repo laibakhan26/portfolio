@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laiba Fatima Khan - Data Analytics Portfolio</title>
+    <title>Laiba Fatima Khan | Data Analyst Portfolio</title>
     <style>
+        :root {
+            --primaryColor: #3f88a5;
+            --secondaryColor: #1f9ed1;
+            --tertiaryColor: #011627;
+            --neutralColor: #fff;
+            --neutralColorOpacity: #f6f7fa;
+            --successColor: #28a745;
+            --errorColor: #dc3545;
+            --warningColor: #ffc107;
+            --textColor: #1e293b;
+            --lightText: #64748b;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,473 +25,319 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #fef6f0 0%, #fff5f7 50%, #f0f4ff 100%);
-            color: #2d3748;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background-color: var(--neutralColorOpacity);
+            color: var(--textColor);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 24px;
+            padding: 40px 20px;
         }
 
+        /* --- Header Section --- */
         header {
-            text-align: center;
-            margin-bottom: 80px;
+            background: var(--tertiaryColor);
+            color: var(--neutralColor);
             padding: 60px 40px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            border: 2px solid rgba(255, 182, 193, 0.3);
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(1, 22, 39, 0.15);
         }
 
         h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -1.5px;
-            background: linear-gradient(135deg, #ff6b9d, #c084fc, #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
-        .tagline {
-            color: #64748b;
+        .role-title {
             font-size: 1.25rem;
-            margin-bottom: 32px;
-            font-weight: 400;
+            color: var(--secondaryColor);
+            font-weight: 500;
+            margin-bottom: 25px;
         }
 
-        .contact-info {
+        .contact-links {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 32px;
+            gap: 20px;
         }
 
-        .contact-item {
-            display: inline-flex;
+        .contact-links a {
+            color: var(--neutralColor);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
-            color: #ff6b9d;
-            text-decoration: none;
-            border: 2px solid #ffc9d9;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s;
         }
 
-        .contact-item:hover {
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(192, 132, 252, 0.1));
-            border-color: #ff6b9d;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.2);
+        .contact-links a:hover {
+            color: var(--secondaryColor);
         }
 
-        .section {
-            margin-bottom: 80px;
+        /* --- Sections --- */
+        section {
+            background: var(--neutralColor);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
         }
 
         h2 {
-            font-size: 2rem;
-            margin-bottom: 32px;
-            font-weight: 700;
-            color: #1e293b;
-            position: relative;
-            padding-bottom: 12px;
+            color: var(--primaryColor);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--neutralColorOpacity);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b9d, #c084fc);
-            border-radius: 2px;
-        }
-
-        .summary-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #475569;
-            max-width: 900px;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 32px;
-            border-radius: 16px;
-            border: 2px solid rgba(255, 182, 193, 0.2);
-        }
-
-        .summary-text br {
-            display: block;
-            content: "";
-            margin-top: 16px;
-        }
-
-        .skills-grid {
+        /* --- Skills Grid --- */
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        .skill-category {
-            padding: 28px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 182, 193, 0.3);
-            border-radius: 16px;
-            transition: all 0.3s ease;
+        .skill-box h3 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--tertiaryColor);
         }
 
-        .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: #ff6b9d;
-            box-shadow: 0 12px 30px rgba(255, 107, 157, 0.15);
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .skill-category h3 {
-            color: #ff6b9d;
-            margin-bottom: 16px;
-            font-size: 1.15rem;
-            font-weight: 700;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(192, 132, 252, 0.1));
-            padding: 8px 16px;
-            margin: 5px;
-            border-radius: 50px;
-            font-size: 0.9rem;
+        .tag {
+            background: var(--neutralColorOpacity);
+            color: var(--primaryColor);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 600;
-            color: #be185d;
-            border: 1px solid rgba(255, 107, 157, 0.3);
-            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
         }
 
-        .skill-tag:hover {
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(192, 132, 252, 0.2));
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.2);
+        /* --- Experience & Projects --- */
+        .item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .experience-item, .project-item, .cert-item, .education-item {
-            margin-bottom: 48px;
-            padding: 32px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 182, 193, 0.3);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            border-left: 5px solid #ff6b9d;
+        .item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
 
-        .experience-item:hover, .project-item:hover, .cert-item:hover, .education-item:hover {
-            transform: translateX(8px);
-            border-left-color: #c084fc;
-            box-shadow: 0 12px 30px rgba(255, 107, 157, 0.15);
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
         }
 
         .item-title {
-            color: #be185d;
-            font-size: 1.4rem;
-            margin-bottom: 8px;
             font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--tertiaryColor);
         }
 
-        .item-subtitle {
-            color: #7c3aed;
-            font-size: 1.05rem;
-            margin-bottom: 8px;
+        .item-org {
+            color: var(--primaryColor);
             font-weight: 600;
         }
 
-        .item-duration {
-            color: #0891b2;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .tools {
-            color: #8b5cf6;
-            font-weight: 700;
-            margin-bottom: 16px;
-            font-size: 1rem;
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--lightText);
+            background: var(--neutralColorOpacity);
+            padding: 4px 10px;
+            border-radius: 4px;
         }
 
         ul {
-            list-style: none;
-            padding-left: 0;
+            list-style-type: none;
+            margin-top: 10px;
         }
 
         li {
-            padding: 12px 0 12px 28px;
             position: relative;
-            color: #475569;
-            line-height: 1.7;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--lightText);
         }
 
-        li:before {
-            content: "→";
+        li::before {
+            content: "•";
+            color: var(--secondaryColor);
+            font-weight: bold;
             position: absolute;
             left: 0;
-            color: #ff6b9d;
-            font-weight: bold;
-            font-size: 1.2rem;
         }
 
-        li strong {
-            color: #be185d;
+        .impact-badge {
+            display: inline-block;
+            background: #ecfdf5;
+            color: var(--successColor);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 700;
-        }
-
-        footer {
-            text-align: center;
-            padding: 48px 24px;
-            color: #64748b;
-            font-size: 0.95rem;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
-            border: 2px solid rgba(255, 182, 193, 0.2);
-            margin-top: 60px;
+            margin-top: 5px;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 1.75rem;
-            }
-
-            .container {
-                padding: 40px 20px;
-            }
-
-            .section {
-                margin-bottom: 60px;
-            }
-
-            header {
-                padding: 40px 24px;
-            }
-
-            .experience-item, .project-item, .cert-item, .education-item {
-                padding: 24px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .item-header {
+                flex-direction: column;
+                gap: 5px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Laiba Fatima Khan</h1>
-            <p class="tagline">Data Analytics Specialist • Machine Learning Engineer • Technical Educator</p>
-            <div class="contact-info">
-                <a href="tel:+918318401462" class="contact-item">
-                    <span>📞</span>
-                    <span>+91 8318401462</span>
-                </a>
-                <a href="mailto:laibassvm123@gmail.com" class="contact-item">
-                    <span>📧</span>
-                    <span>laibassvm123@gmail.com</span>
-                </a>
-                <a href="https://github.com/laibakhan26" class="contact-item" target="_blank">
-                    <span>💻</span>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/laiba-fatima-a5a0a528b/" class="contact-item" target="_blank">
-                    <span>💼</span>
-                    <span>LinkedIn</span>
-                </a>
-                <span class="contact-item">
-                    <span>📍</span>
-                    <span>Bangalore, India</span>
-                </span>
-            </div>
-        </header>
 
-        <section class="section">
-            <h2>Professional Summary</h2>
-            <p class="summary-text">
-                Passionate data analytics professional with comprehensive expertise in transforming complex datasets into strategic business insights. Currently serving as a Technical Research Analyst at Intellipaat Software Solution, where I mentor 50+ aspiring data scientists through intensive Machine Learning programs while designing cutting-edge, industry-aligned curriculum.
-                <br><br>
-                My technical proficiency spans the complete data science pipeline—from data extraction and preprocessing using Python and SQL to building sophisticated predictive models with machine learning algorithms, culminating in compelling visualizations through Power BI and advanced analytics tools. With a proven track record of delivering actionable insights through sentiment analysis, customer behavior modeling, and sales optimization projects, I combine strong technical capabilities with exceptional communication skills to bridge the gap between complex data science concepts and practical business applications.
-                <br><br>
-                Recently completed an intensive Data Engineering and Visualization Program with HCL Tech, where I mastered end-to-end data pipeline development, warehouse modeling, and enterprise-level visualization solutions. My approach emphasizes not just technical excellence, but also the ability to translate data-driven findings into strategic recommendations that drive measurable business outcomes.
-            </p>
-        </section>
+<div class="container">
+    <header>
+        <h1>Laiba Fatima Khan</h1>
+        <div class="role-title">Data Analyst</div>
+        <div class="contact-links">
+            <a href="mailto:laibassvm123@gmail.com">📧 laibassvm123@gmail.com</a>
+            <a href="tel:+918318401462">📱 +91 8318401462</a>
+            <a href="https://linkedin.com/in/laiba-fatima-a5a0a528b">🔗 LinkedIn</a>
+            <a href="https://github.com/laibakhan26">🐙 GitHub</a>
+            <a href="https://laibakhan26.github.io/portfolio">🌐 Portfolio</a>
+        </div>
+    </header>
 
-        <section class="section">
-            <h2>Technical Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming & Data</h3>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">Django</span>
-                </div>
-                <div class="skill-category">
-                    <h3>Machine Learning & AI</h3>
-                    <span class="skill-tag">Scikit-learn</span>
-                    <span class="skill-tag">NLP</span>
-                    <span class="skill-tag">Transformers</span>
-                    <span class="skill-tag">Supervised Learning</span>
-                    <span class="skill-tag">Model Evaluation</span>
-                </div>
-                <div class="skill-category">
-                    <h3>Visualization & BI</h3>
-                    <span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">Matplotlib</span>
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Data Storytelling</span>
-                </div>
-                <div class="skill-category">
-                    <h3>Professional Skills</h3>
-                    <span class="skill-tag">Leadership</span>
-                    <span class="skill-tag">Mentorship</span>
-                    <span class="skill-tag">Problem Solving</span>
-                    <span class="skill-tag">Communication</span>
-                    <span class="skill-tag">Project Management</span>
+    <section id="summary">
+        <h2>Professional Summary</h2>
+        <p style="color: var(--lightText);">
+            Data Analyst with hands-on experience in Python, SQL, Excel, and Power BI, specializing in data cleaning, data validation, exploratory data analysis (EDA), and dashboard development[cite: 7]. Proven ability to analyze large structured datasets, define KPIs, and deliver actionable insights for business decision making[cite: 8].
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h3>Analysis & EDA</h3>
+                <div class="tag-list">
+                    <span class="tag">Data Cleaning</span>
+                    <span class="tag">KPI Analysis</span>
+                    <span class="tag">Trend Analysis</span>
+                    <span class="tag">Statistical Analysis</span>
                 </div>
             </div>
-        </section>
-
-        <section class="section">
-            <h2>Professional Certifications</h2>
-            <div class="cert-item">
-                <div class="item-title">Data Engineering and Visualization Program</div>
-                <div class="item-subtitle">HCL Technologies</div>
-                <div class="item-duration">Completed: March 2025 • Duration: 3 Months Intensive</div>
-                <ul>
-                    <li>Architected and implemented comprehensive data warehouse models, optimizing data storage and retrieval for enhanced analytical performance</li>
-                    <li>Mastered Power BI for creating interactive dashboards and reports that transform raw data into actionable business intelligence</li>
-                    <li>Developed end-to-end data engineering pipelines using Python, incorporating ETL processes, data transformation, and quality assurance protocols</li>
-                    <li>Generated strategic insights through advanced visualization techniques, enabling data-driven decision making across multiple business domains</li>
-                    <li>Gained hands-on experience with enterprise-level data solutions, including cloud-based data platforms and real-time analytics systems</li>
-                </ul>
+            <div class="skill-box">
+                <h3>Languages & DB</h3>
+                <div class="tag-list">
+                    <span class="tag">Python (Pandas, NumPy)</span>
+                    <span class="tag">SQL (Joins, CTEs)</span>
+                    <span class="tag">Machine Learning</span>
+                </div>
             </div>
-        </section>
-
-        <section class="section">
-            <h2>Professional Experience</h2>
-            
-            <div class="experience-item">
-                <div class="item-title">Technical Research Analyst (TRA)</div>
-                <div class="item-subtitle">Intellipaat Software Solution</div>
-                <div class="item-duration">January 2025 - Present</div>
-                <ul>
-                    <li>Orchestrate and deliver comprehensive live training sessions on Machine Learning to cohorts of 50+ aspiring Data Scientists, covering theoretical foundations, practical implementations, and real-world case studies</li>
-                    <li>Design, develop, and continuously refine cutting-edge Data Science curriculum aligned with evolving industry demands, incorporating latest tools, frameworks, and best practices from leading tech companies</li>
-                    <li>Lead cross-functional capstone projects that simulate industry scenarios, guiding students through complete data science lifecycle from problem definition and data collection to model deployment and performance monitoring</li>
-                    <li>Conduct advanced analytical projects including sentiment analysis on customer feedback datasets and HR analytics for workforce optimization, utilizing Python, NLP techniques (NLTK, spaCy), and sophisticated visualization tools</li>
-                    <li>Collaborate with curriculum development teams, industry partners, and educational leadership to enhance learning outcomes, incorporating feedback loops and data-driven improvements to training methodologies</li>
-                    <li>Mentor individual students on career development, technical skill enhancement, and project portfolio building, resulting in improved placement rates and student satisfaction scores</li>
-                </ul>
+            <div class="skill-box">
+                <h3>Visualization</h3>
+                <div class="tag-list">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Interactive Dashboards</span>
+                    <span class="tag">Excel (Pivot Tables)</span>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="experience-item">
-                <div class="item-title">Data Analytics Intern</div>
-                <div class="item-subtitle">Softpro India</div>
-                <div class="item-duration">July 2024 - October 2024</div>
-                <ul>
-                    <li>Gained comprehensive hands-on experience in Python programming ecosystem, mastering advanced data structures, object-oriented programming principles, and functional programming paradigms for efficient data manipulation</li>
-                    <li>Developed proficiency in SQL database operations including complex queries, joins, subqueries, window functions, and query optimization techniques for handling large-scale datasets</li>
-                    <li>Applied industry-standard Python libraries including Pandas for data wrangling, NumPy for numerical computing, and Django framework for building data-driven web applications</li>
-                    <li>Enhanced analytical problem-solving capabilities by implementing data-driven solutions to complex business challenges, focusing on process optimization and efficiency improvements</li>
-                    <li>Acquired foundational knowledge in Machine Learning concepts including supervised learning algorithms (regression, classification), model training and validation, and feature engineering techniques</li>
-                    <li>Participated in team code reviews and agile development practices, learning collaborative software development workflows and version control using Git</li>
-                </ul>
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <div class="item-title">Technical Research Analyst</div>
+                    <div class="item-org">Intellipaat Software Solutions, Bangalore</div>
+                </div>
+                <div class="item-date">Jan 2025 – Present</div>
             </div>
-        </section>
+            <ul>
+                <li>Analyzed 50K+ learner records using Python and SQL to identify churn behavior[cite: 20].</li>
+                <li>Improved course completion rates by 18% and reduced dropout rates by 12%[cite: 21]. <span class="impact-badge">High Impact</span></li>
+                <li>Designed 10+ Power BI and Excel dashboards tracking engagement and completion funnels[cite: 22].</li>
+                <li>Conducted EDA on video modules, leading to a 20% increase in average watch time[cite: 23].</li>
+            </ul>
+        </div>
 
-        <section class="section">
-            <h2>Featured Projects</h2>
-            
-            <div class="project-item">
-                <div class="item-title">Speech-to-Summary System</div>
-                <div class="tools">Technologies: Python • Whisper (OpenAI) • Transformers (Hugging Face) • PyAudio • BART • NLP</div>
-                <ul>
-                    <li><strong>Real-time Audio Processing Engine:</strong> Engineered a sophisticated command-line application with seamless 60-second audio recording capability using PyAudio library, implementing buffer management and noise reduction for optimal voice input capture quality</li>
-                    <li><strong>Advanced Speech Recognition Implementation:</strong> Integrated OpenAI's Whisper small model achieving 95%+ transcription accuracy, incorporating comprehensive error handling, audio format conversion, and fallback mechanisms for robust performance across various audio qualities</li>
-                    <li><strong>Intelligent Text Summarization Pipeline:</strong> Deployed Facebook's BART-large-CNN transformer model for extractive and abstractive summarization, implementing dynamic length adjustment algorithms that adapt summary compression based on input text complexity and user preferences</li>
-                    <li><strong>Complete NLP Pipeline Architecture:</strong> Built end-to-end natural language processing pipeline demonstrating expertise in audio signal processing, automatic speech recognition, natural language understanding, and text generation—applicable for meeting transcription, content creation, and accessibility solutions</li>
-                    <li><strong>Performance Optimization:</strong> Optimized processing speed by 40% through efficient model loading, batch processing, and memory management techniques, enabling near real-time summarization capabilities</li>
-                </ul>
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <div class="item-title">Data Analytics Intern</div>
+                    <div class="item-org">Softpro India, Lucknow</div>
+                </div>
+                <div class="item-date">Jul 2024 – Oct 2024</div>
             </div>
+            <ul>
+                <li>Queried and analyzed datasets using SQL and Python to support KPI tracking[cite: 28].</li>
+                <li>Performed data cleaning using Pandas and NumPy to improve accuracy[cite: 29].</li>
+                <li>Built basic classification models to support forecasting and analytical insights[cite: 31].</li>
+            </ul>
+        </div>
+    </section>
 
-            <div class="project-item">
-                <div class="item-title">Amazon Sales Report Analysis</div>
-                <div class="tools">Technologies: Python • Pandas • Power BI • SQL • Matplotlib • Statistical Analysis</div>
-                <ul>
-                    <li><strong>Comprehensive Sales Performance Analytics:</strong> Conducted in-depth analysis of multi-year sales data encompassing 500,000+ transactions, identifying top-performing products, seasonal trends, and regional demand variations through advanced statistical techniques and time-series analysis</li>
-                    <li><strong>Revenue Optimization Insights:</strong> Evaluated revenue streams and profit margins across 50+ product categories, uncovering high-margin opportunities and underperforming segments, leading to data-driven recommendations that projected 15% potential revenue increase</li>
-                    <li><strong>Customer Behavior Segmentation:</strong> Implemented RFM (Recency, Frequency, Monetary) analysis and clustering algorithms to segment customers into distinct behavioral groups, revealing key purchasing patterns and preferences that informed targeted marketing strategies</li>
-                    <li><strong>Interactive Dashboard Development:</strong> Created comprehensive Power BI dashboards featuring KPI tracking, drill-down capabilities, and predictive trend forecasting, enabling stakeholders to monitor sales performance and make real-time strategic adjustments</li>
-                    <li><strong>Inventory Management Optimization:</strong> Identified inventory turnover patterns and stockout risks, providing actionable recommendations for inventory optimization that reduced holding costs while maintaining service levels</li>
-                </ul>
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Healthcare Appointment No-Show Analysis</div>
             </div>
+            <p style="font-size: 0.9rem; margin-bottom: 10px; color: var(--primaryColor); font-weight: 600;">Python | SQL | Power BI | Random Forest</p>
+            <ul>
+                <li>Built predictive models (Logistic Regression, Random Forest) to identify high-risk appointments[cite: 37].</li>
+                <li>Developed Power BI dashboards to visualize risk segments and potential cost savings[cite: 39].</li>
+                <li>Estimated a potential 30-35% reduction in no-shows through data-driven insights[cite: 40].</li>
+            </ul>
+        </div>
 
-            <div class="project-item">
-                <div class="item-title">Customer Churn Analysis & Prediction</div>
-                <div class="tools">Technologies: Python • Scikit-learn • Pandas • Matplotlib • Seaborn • Statistical Modeling</div>
-                <ul>
-                    <li><strong>Predictive Churn Modeling:</strong> Developed and compared multiple machine learning models including Logistic Regression, Random Forest, and Gradient Boosting achieving 85% accuracy in identifying high-risk customers, enabling proactive retention interventions 3-6 months before potential churn</li>
-                    <li><strong>Feature Engineering & Selection:</strong> Performed comprehensive feature engineering on 25+ customer attributes including engagement metrics, purchase history, service usage patterns, and support interactions, utilizing correlation analysis and feature importance ranking to identify top churn predictors</li>
-                    <li><strong>Behavioral Pattern Discovery:</strong> Applied exploratory data analysis and visualization techniques to uncover critical churn factors including low interaction frequency, service dissatisfaction indicators, pricing sensitivity, and competitive switching patterns</li>
-                    <li><strong>Model Interpretability & Insights:</strong> Implemented SHAP (SHapley Additive exPlanations) values for model interpretability, providing transparent explanations of churn predictions that enabled business stakeholders to understand and act on model recommendations</li>
-                    <li><strong>Retention Strategy Framework:</strong> Delivered comprehensive data-driven retention recommendations including personalized offer structures, loyalty program enhancements, and proactive customer success interventions, projected to reduce churn by 20% and increase customer lifetime value by 30%</li>
-                </ul>
+        <div class="item">
+            <div class="item-header">
+                <div class="item-title">Bangalore Traffic & Air Quality Analysis</div>
             </div>
-        </section>
+            <p style="font-size: 0.9rem; margin-bottom: 10px; color: var(--primaryColor); font-weight: 600;">Python API | Time-Series Analysis | Power BI</p>
+            <ul>
+                <li>Collected real-time data via APIs to identify peak congestion and pollution hotspots[cite: 42, 43].</li>
+                <li>Designed interactive dashboards highlighting optimal travel windows to reduce travel time by 20-30%[cite: 45, 46].</li>
+            </ul>
+        </div>
+    </section>
 
-        <section class="section">
-            <h2>Education</h2>
-            
-            <div class="education-item">
-                <div class="item-title">Bachelor of Technology in Computer Science</div>
-                <div class="item-subtitle">Kashi Institute of Technology, Varanasi</div>
-                <div class="item-duration">July 2021 - August 2025</div>
-                <ul>
-                    <li>Comprehensive computer science education covering data structures, algorithms, database management systems, software engineering, and artificial intelligence</li>
-                    <li>Completed advanced coursework in machine learning, data mining, statistical analysis, and business intelligence</li>
-                    <li>Active participant in technical clubs, coding competitions, and hackathons, developing practical problem-solving skills</li>
-                </ul>
+    <section id="education">
+        <h2>Education</h2>
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <div class="item-title">Bachelor of Computer Science</div>
+                    <div class="item-org">Kashi Institute of Technology</div>
+                </div>
+                <div class="item-date">2021 – 2025</div>
             </div>
+            <p style="font-size: 0.95rem; color: var(--lightText);">CGPA: 7.42 [cite: 52, 56]</p>
+        </div>
+    </section>
+</div>
 
-            <div class="education-item">
-                <div class="item-title">Intermediate (12th Grade) - 84%</div>
-                <div class="item-subtitle">Kendriya Vidyalaya Sangathan</div>
-                <div class="item-duration">July 2020 - August 2021</div>
-            </div>
-
-            <div class="education-item">
-                <div class="item-title">High School (10th Grade) - 86%</div>
-                <div class="item-subtitle">Kendriya Vidyalaya Sangathan</div>
-                <div class="item-duration">July 2018 - July 2019</div>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2026 Laiba Fatima Khan • Data Analytics Professional<br>Available for exciting opportunities in Data Science and Machine Learning</p>
-        </footer>
-    </div>
 </body>
 </html>
