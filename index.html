@@ -6,14 +6,16 @@
     <title>Laiba Fatima Khan | Data & Business Analyst Portfolio</title>
     <style>
         :root {
-            --primaryColor: #3f88a5; /* User Primary */
-            --secondaryColor: #1f9ed1; /* User Secondary */
-            --tertiaryColor: #011627; /* Dark Professional Blue */
+            --primaryColor: #3f88a5;
+            --secondaryColor: #1f9ed1;
+            --tertiaryColor: #011627;
             --bgColor: #f8fafc;
             --white: #ffffff;
             --textDark: #1e293b;
             --textLight: #64748b;
-            --accent: #28a745; /* Success Green */
+            --accent: #28a745;
+            --accentOrange: #f59e0b;
+            --lightBlue: #e0f2fe;
         }
 
         * {
@@ -24,13 +26,13 @@
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bgColor);
+            background: linear-gradient(to bottom, #f8fafc 0%, #e0f2fe 100%);
             color: var(--textDark);
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -39,26 +41,59 @@
         header {
             background: linear-gradient(135deg, var(--tertiaryColor) 0%, var(--primaryColor) 100%);
             color: var(--white);
-            padding: 80px 40px;
-            border-radius: 20px;
+            padding: 100px 60px;
+            border-radius: 24px;
             text-align: center;
-            margin-bottom: 50px;
-            box-shadow: 0 20px 40px rgba(1, 22, 39, 0.2);
+            margin-bottom: 60px;
+            box-shadow: 0 25px 50px rgba(1, 22, 39, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--secondaryColor);
+            font-size: 1.3rem;
+            color: var(--lightBlue);
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
         }
 
         .contact-grid {
@@ -66,128 +101,217 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .contact-btn {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             color: var(--white);
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 28px;
             border-radius: 30px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.95rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
         }
 
         .contact-btn:hover {
             background: var(--secondaryColor);
             border-color: var(--secondaryColor);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(31, 158, 209, 0.3);
         }
 
         /* --- Sections --- */
         section {
             background: var(--white);
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid #eef2f6;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
 
         h2 {
-            font-size: 1.6rem;
+            font-size: 2rem;
             color: var(--tertiaryColor);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            font-weight: 700;
         }
 
         h2::before {
             content: "";
-            width: 4px;
-            height: 24px;
-            background: var(--secondaryColor);
-            border-radius: 2px;
+            width: 5px;
+            height: 32px;
+            background: linear-gradient(to bottom, var(--secondaryColor), var(--primaryColor));
+            border-radius: 3px;
         }
 
-        /* --- Skills Table Layout --- */
+        /* --- Professional Summary --- */
+        .summary-text {
+            color: var(--textLight);
+            font-size: 1.1rem;
+            line-height: 2;
+            text-align: justify;
+        }
+
+        .summary-text strong {
+            color: var(--primaryColor);
+            font-weight: 700;
+        }
+
+        /* --- Skills Section --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-cat {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            padding: 25px;
+            border-radius: 16px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-cat:hover {
+            border-color: var(--secondaryColor);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(31, 158, 209, 0.15);
         }
 
         .skill-cat h3 {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: var(--primaryColor);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-cat h3::before {
+            content: "●";
+            color: var(--secondaryColor);
+            font-size: 1.5rem;
         }
 
         .tag-cloud {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .tag {
-            background: #f1f5f9;
+            background: var(--white);
             color: var(--textDark);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
 
-        /* --- Experience/Project Timeline --- */
+        .tag:hover {
+            background: var(--primaryColor);
+            color: var(--white);
+            border-color: var(--primaryColor);
+            transform: scale(1.05);
+        }
+
+        /* --- Experience Timeline --- */
         .timeline-item {
             position: relative;
-            padding-left: 30px;
-            margin-bottom: 40px;
-            border-left: 2px solid #e2e8f0;
+            padding-left: 40px;
+            margin-bottom: 50px;
+            border-left: 3px solid #e2e8f0;
+            transition: border-color 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            border-left-color: var(--secondaryColor);
         }
 
         .timeline-item::after {
             content: "";
             position: absolute;
-            left: -7px;
+            left: -9px;
             top: 0;
-            width: 12px;
-            height: 12px;
+            width: 15px;
+            height: 15px;
             background: var(--secondaryColor);
             border-radius: 50%;
-            border: 3px solid var(--white);
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 3px #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::after {
+            background: var(--accent);
+            box-shadow: 0 0 0 3px var(--secondaryColor);
+            transform: scale(1.2);
         }
 
         .timeline-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .job-title {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--tertiaryColor);
         }
 
         .company {
             color: var(--primaryColor);
-            font-weight: 600;
+            font-weight: 700;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
 
         .date-badge {
-            font-size: 0.8rem;
-            background: #f1f5f9;
-            padding: 4px 12px;
+            font-size: 0.85rem;
+            background: linear-gradient(135deg, var(--secondaryColor), var(--primaryColor));
+            padding: 6px 16px;
             border-radius: 20px;
-            color: var(--textLight);
-            font-weight: 600;
+            color: var(--white);
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(31, 158, 209, 0.3);
+        }
+
+        .tech-stack {
+            color: var(--primaryColor);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tech-stack::before {
+            content: "⚙";
+            font-size: 1.2rem;
         }
 
         ul {
@@ -195,11 +319,12 @@
         }
 
         li {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-size: 1rem;
             color: var(--textLight);
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
+            line-height: 1.8;
         }
 
         li::before {
@@ -208,46 +333,184 @@
             left: 0;
             color: var(--secondaryColor);
             font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        li strong {
+            color: var(--textDark);
+            font-weight: 700;
         }
 
         .highlight {
             color: var(--accent);
-            font-weight: 700;
+            font-weight: 800;
+            background: rgba(40, 167, 69, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
-        /* --- Metrics Footer --- */
+        /* --- Metrics Cards --- */
         .metric-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
-            margin-top: 20px;
-            text-align: center;
+            margin-top: 30px;
         }
 
         .metric-card {
-            background: #f8fafc;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 25px;
+            border-radius: 16px;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--secondaryColor);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(31, 158, 209, 0.2);
         }
 
         .metric-value {
             display: block;
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 2rem;
+            font-weight: 900;
             color: var(--primaryColor);
+            margin-bottom: 8px;
         }
 
         .metric-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             color: var(--textLight);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
 
+        /* --- Education Section --- */
+        .education-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 25px;
+            border-radius: 16px;
+            border: 2px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .degree-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--tertiaryColor);
+        }
+
+        .institution {
+            color: var(--primaryColor);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .cgpa-badge {
+            background: var(--accent);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* --- Certifications --- */
+        .cert-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--secondaryColor);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(31, 158, 209, 0.15);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--secondaryColor);
+        }
+
+        .cert-details {
+            flex: 1;
+        }
+
+        .cert-name {
+            font-weight: 700;
+            color: var(--textDark);
+            font-size: 1.05rem;
+            margin-bottom: 3px;
+        }
+
+        .cert-provider {
+            color: var(--textLight);
+            font-size: 0.9rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--textLight);
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .footer-link {
+            color: var(--primaryColor);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--secondaryColor);
+        }
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .timeline-header { flex-direction: column; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.5rem; }
+            section { padding: 30px 20px; }
+            header { padding: 60px 30px; }
+            .timeline-header { flex-direction: column; align-items: flex-start; }
             .metric-container { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -256,41 +519,69 @@
 <div class="container">
     <header>
         <h1>Laiba Fatima Khan</h1>
-        <div class="hero-subtitle">Data Analyst | Business Analytics Specialist</div>
+        <div class="hero-subtitle">Data Analyst | Business Intelligence Specialist</div>
+        <p class="hero-description">
+            Transforming complex data into strategic insights with expertise in Python, SQL, and Power BI. Passionate about leveraging analytics to drive business growth and operational excellence.
+        </p>
         <div class="contact-grid">
-            <a href="mailto:laibassvm123@gmail.com" class="contact-btn">Email</a>
-            <a href="https://linkedin.com/in/laiba-fatima-a5a0a528b" class="contact-btn">LinkedIn</a>
-            <a href="https://github.com/laibakhan26" class="contact-btn">GitHub</a>
-            <a href="https://laibakhan26.github.io/portfolio" class="contact-btn">Portfolio</a>
+            <a href="mailto:laibassvm123@gmail.com" class="contact-btn">📧 Email</a>
+            <a href="https://linkedin.com/in/laiba-fatima-a5a0a528b" class="contact-btn">💼 LinkedIn</a>
+            <a href="https://github.com/laibakhan26" class="contact-btn">💻 GitHub</a>
+            <a href="https://laibakhan26.github.io/portfolio" class="contact-btn">🌐 Portfolio</a>
+            <a href="tel:+918318401462" class="contact-btn">📱 +91 8318401462</a>
         </div>
     </header>
 
     <section>
         <h2>Professional Summary</h2>
-        <p style="color: var(--textLight); font-size: 1.05rem;">
-            Analytical professional [cite: 7] with a background in <strong>Business Decision Support</strong>  and <strong>KPI Analysis</strong>[cite: 8, 11]. Specialized in translating complex datasets into actionable growth strategies. Experienced in sales and HR analytics [cite: 9], with a focus on improving operational efficiency through data-driven reporting.
+        <p class="summary-text">
+            Results-driven <strong>Data Analyst</strong> with proven expertise in transforming large-scale datasets into actionable business intelligence. Specialized in <strong>Business Decision Support</strong>, <strong>KPI Analysis</strong>, and <strong>Predictive Analytics</strong>. Demonstrated success in analyzing 50,000+ records to drive strategic improvements, including an 18% increase in completion rates and 20% boost in engagement metrics. Proficient in building interactive dashboards and delivering data-driven recommendations that optimize operational efficiency across sales, HR, and customer analytics domains. Strong foundation in statistical analysis, exploratory data analysis (EDA), and machine learning applications for business forecasting.
         </p>
     </section>
 
     <section>
-        <h2>Technical Arsenal</h2>
+        <h2>Technical Expertise</h2>
         <div class="skills-grid">
             <div class="skill-cat">
-                <h3>Core Analytics</h3>
+                <h3>Data Analysis & Statistics</h3>
                 <div class="tag-cloud">
-                    <span class="tag">SQL (Window Functions, CTEs)</span>
-                    <span class="tag">Python (Pandas, NumPy)</span>
-                    <span class="tag">EDA & Data Validation</span>
-                    <span class="tag">Regression & Classification</span>
+                    <span class="tag">Exploratory Data Analysis (EDA)</span>
+                    <span class="tag">Statistical Analysis</span>
+                    <span class="tag">Data Cleaning & Validation</span>
+                    <span class="tag">KPI Definition & Tracking</span>
+                    <span class="tag">Trend Analysis</span>
+                    <span class="tag">A/B Testing</span>
                 </div>
             </div>
             <div class="skill-cat">
-                <h3>Business Intelligence</h3>
+                <h3>Programming & Databases</h3>
+                <div class="tag-cloud">
+                    <span class="tag">Python (Pandas, NumPy)</span>
+                    <span class="tag">SQL (CTEs, Window Functions)</span>
+                    <span class="tag">Data Extraction & Aggregation</span>
+                    <span class="tag">Query Optimization</span>
+                    <span class="tag">Database Management</span>
+                </div>
+            </div>
+            <div class="skill-cat">
+                <h3>Visualization & BI Tools</h3>
                 <div class="tag-cloud">
                     <span class="tag">Power BI Dashboards</span>
-                    <span class="tag">Excel (Pivot, VLOOKUP)</span>
-                    <span class="tag">KPI Definition</span>
-                    <span class="tag">Trend Analysis</span>
+                    <span class="tag">Excel (Advanced Functions)</span>
+                    <span class="tag">Data Storytelling</span>
+                    <span class="tag">Matplotlib & Seaborn</span>
+                    <span class="tag">Interactive Reporting</span>
+                </div>
+            </div>
+            <div class="skill-cat">
+                <h3>Machine Learning & Analytics</h3>
+                <div class="tag-cloud">
+                    <span class="tag">Regression Analysis</span>
+                    <span class="tag">Classification Models</span>
+                    <span class="tag">Scikit-learn</span>
+                    <span class="tag">Feature Engineering</span>
+                    <span class="tag">Predictive Modeling</span>
+                    <span class="tag">Model Evaluation</span>
                 </div>
             </div>
         </div>
@@ -301,62 +592,181 @@
         
         <div class="timeline-item">
             <div class="timeline-header">
-                <span class="job-title">Technical Research Analyst</span>
+                <div>
+                    <span class="job-title">Technical Research Analyst</span>
+                    <span class="company">Intellipaat Software Solutions, Bangalore, India</span>
+                </div>
                 <span class="date-badge">Jan 2025 – Present</span>
             </div>
-            <span class="company">Intellipaat Software Solutions, Bangalore</span>
             <ul>
-                <li>Analyzed <strong>50K+ performance records</strong> using Python and SQL to identify churn behavior[cite: 20].</li>
-                <li>Engineered data-driven insights improving completion rates by <span class="highlight">18%</span>[cite: 21].</li>
-                <li>Architected <strong>10+ interactive dashboards</strong> in Power BI for tracking real-time business KPIs[cite: 22].</li>
-                <li>Conducted exploratory analysis on learner feedback, boosting watch time by <span class="highlight">20%</span>[cite: 23].</li>
+                <li>Spearheaded comprehensive analysis of <strong>50,000+ learner interaction and performance records</strong> using Python (Pandas, NumPy) and SQL, uncovering critical patterns in engagement behavior, course completion trajectories, assessment performance metrics, and churn indicators.</li>
+                <li>Delivered strategic data-driven insights that catalyzed an <span class="highlight">18% improvement in course completion rates</span> and achieved a <span class="highlight">12% reduction in dropout rates</span>, directly impacting organizational KPIs and learner success outcomes.</li>
+                <li>Architected and maintained <strong>10+ sophisticated Power BI and Excel dashboards</strong> providing real-time visibility into critical business metrics including engagement rate, completion funnels, quiz accuracy scores, cohort performance analytics, and revenue attribution.</li>
+                <li>Conducted in-depth exploratory data analysis on video module consumption patterns and learner feedback sentiment, resulting in a remarkable <span class="highlight">20% increase in average watch time</span> and enhanced content retention strategies.</li>
+                <li>Generated comprehensive ad-hoc analytical reports supporting curriculum optimization initiatives, instructor performance evaluations, and data-driven strategic decision-making across multiple business units.</li>
+                <li>Collaborated cross-functionally with product, marketing, and curriculum teams to translate complex analytical findings into actionable recommendations that enhanced learner experience and business performance.</li>
             </ul>
         </div>
 
         <div class="timeline-item">
             <div class="timeline-header">
-                <span class="job-title">Data Analytics Intern</span>
+                <div>
+                    <span class="job-title">Data Analytics Intern</span>
+                    <span class="company">Softpro India, Lucknow, India</span>
+                </div>
                 <span class="date-badge">Jul 2024 – Oct 2024</span>
             </div>
-            <span class="company">Softpro India, Lucknow</span>
             <ul>
-                <li>Optimized data accuracy through rigorous cleaning and preprocessing of business datasets[cite: 29].</li>
-                <li>Utilized SQL and Python to support automated KPI tracking and ad-hoc reporting[cite: 28].</li>
-                <li>Identified critical business anomalies through cross-functional trend analysis[cite: 30].</li>
+                <li>Executed complex SQL queries and Python-based data analysis workflows to extract, transform, and analyze business-critical datasets, supporting comprehensive reporting and KPI tracking initiatives.</li>
+                <li>Enhanced data integrity and accuracy through rigorous data cleaning and preprocessing operations using Pandas and NumPy, ensuring reliable foundations for analytical insights and business intelligence.</li>
+                <li>Performed detailed exploratory data analysis (EDA) to uncover meaningful trends, correlations, and statistical anomalies across diverse business datasets, informing strategic decision-making processes.</li>
+                <li>Developed foundational classification models utilizing machine learning algorithms to support predictive analytics capabilities and business forecasting requirements.</li>
+                <li>Collaborated with senior analysts to validate analytical methodologies and contribute to the development of standardized data analysis workflows and best practices.</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>Impact Projects</h2>
+        <h2>Featured Projects</h2>
         
         <div class="timeline-item">
             <div class="timeline-header">
-                <span class="job-title">Healthcare Revenue & Utilization Analysis</span>
+                <span class="job-title">Healthcare Appointment No-Show Analysis & Prediction</span>
             </div>
-            <p style="color: var(--primaryColor); font-size: 0.9rem; font-weight: 600; margin-bottom: 10px;">SQL | Python | Scikit-learn | Power BI</p>
+            <p class="tech-stack">Python | SQL | Scikit-learn | Power BI | Statistical Modeling</p>
             <ul>
-                <li>Defined business-critical KPIs including <strong>no-show rate</strong> and <strong>revenue loss</strong>[cite: 38].</li>
-                <li>Modeled appointment utilization data to predict high-risk no-shows with Random Forest[cite: 37].</li>
-                <li>Projected potential hospital resource optimization of <span class="highlight">30-35%</span>[cite: 40].</li>
+                <li>Conducted comprehensive analysis of healthcare appointment data using advanced Python and SQL techniques to identify and quantify key factors contributing to patient no-show behavior patterns.</li>
+                <li>Performed sophisticated exploratory data analysis and feature engineering on critical variables including appointment lead time, visit type classifications, historical patient behavior, temporal patterns, and demographic factors.</li>
+                <li>Developed and optimized predictive machine learning models (Logistic Regression, Random Forest) achieving high accuracy in identifying high-risk appointments and enabling proactive intervention strategies.</li>
+                <li>Defined and tracked essential business KPIs including <strong>no-show rate</strong>, <strong>appointment utilization efficiency</strong>, <strong>revenue loss attribution</strong>, and <strong>resource allocation metrics</strong>.</li>
+                <li>Created an interactive <strong>Power BI dashboard</strong> providing actionable visualizations of predicted no-shows, patient risk segmentation, cost-saving opportunities, and operational efficiency metrics.</li>
+                <li>Generated strategic insights projecting potential reduction in no-shows by <span class="highlight">30–35%</span> and significant improvements in hospital resource utilization and revenue optimization.</li>
             </ul>
             <div class="metric-container">
-                <div class="metric-card"><span class="metric-value">30%+</span><span class="metric-label">Efficiency Gain</span></div>
-                <div class="metric-card"><span class="metric-value">KPI</span><span class="metric-label">Driven Modeling</span></div>
-                <div class="metric-card"><span class="metric-value">ROI</span><span class="metric-label">Focused Analysis</span></div>
+                <div class="metric-card">
+                    <span class="metric-value">30-35%</span>
+                    <span class="metric-label">No-Show Reduction</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">ML-Driven</span>
+                    <span class="metric-label">Predictive Models</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">ROI-Focused</span>
+                    <span class="metric-label">Business Impact</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">Real-Time</span>
+                    <span class="metric-label">BI Dashboard</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="job-title">Real-Time Bangalore Traffic & Air Quality Analysis</span>
+            </div>
+            <p class="tech-stack">Python | API Integration | Power BI | Time-Series Analysis</p>
+            <ul>
+                <li>Engineered automated data collection pipelines to gather real-time traffic and air quality data from multiple public and API-based sources using Python, ensuring continuous data availability for analysis.</li>
+                <li>Conducted time-based aggregation and sophisticated exploratory data analysis to identify peak congestion periods, pollution hotspots, and temporal patterns affecting urban mobility and environmental health.</li>
+                <li>Built predictive models leveraging machine learning algorithms to estimate traffic density fluctuations and Air Quality Index (AQI) trends based on location, time of day, and environmental factors.</li>
+                <li>Designed and deployed an <strong>interactive Power BI dashboard</strong> highlighting optimal travel windows, healthier commuting route alternatives, and real-time environmental conditions for informed decision-making.</li>
+                <li>Generated actionable insights enabling commuters to reduce average travel time by <span class="highlight">20–30%</span> while minimizing exposure to poor air quality conditions.</li>
+            </ul>
+            <div class="metric-container">
+                <div class="metric-card">
+                    <span class="metric-value">20-30%</span>
+                    <span class="metric-label">Travel Time Saved</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">Real-Time</span>
+                    <span class="metric-label">Data Integration</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">Interactive</span>
+                    <span class="metric-label">Visualization</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section>
         <h2>Education</h2>
-        <div class="timeline-header" style="margin-bottom: 5px;">
-            <span class="job-title" style="font-size: 1.1rem;">Bachelor of Computer Science</span>
-            <span class="date-badge">2021 – 2025</span>
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <div class="degree-title">Bachelor of Computer Science</div>
+                    <div class="institution">Kashi Institute of Technology, India</div>
+                </div>
+                <div>
+                    <span class="date-badge">2021 – 2025</span>
+                </div>
+            </div>
+            <p style="color: var(--textLight); margin-top: 10px;">
+                <span class="cgpa-badge">CGPA: 7.42 / 10.0</span>
+            </p>
         </div>
-        <p style="color: var(--primaryColor); font-weight: 600;">Kashi Institute of Technology | CGPA: 7.42 </p>
+
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <div class="degree-title">Intermediate (12th Grade)</div>
+                    <div class="institution">Kendriya Vidyalaya Sangathan, India</div>
+                </div>
+                <div>
+                    <span class="date-badge">2021</span>
+                </div>
+            </div>
+            <p style="color: var(--textLight); margin-top: 10px;">
+                <span class="cgpa-badge">Score: 84%</span>
+            </p>
+        </div>
+
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <div class="degree-title">High School (10th Grade)</div>
+                    <div class="institution">Kendriya Vidyalaya Sangathan, India</div>
+                </div>
+                <div>
+                    <span class="date-badge">2019</span>
+                </div>
+            </div>
+            <p style="color: var(--textLight); margin-top: 10px;">
+                <span class="cgpa-badge">Score: 86%</span>
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Professional Certifications</h2>
+        <div class="cert-list">
+            <div class="cert-item">
+                <div class="cert-icon">🎓</div>
+                <div class="cert-details">
+                    <div class="cert-name">SQL for Data Analytics with AI</div>
+                    <div class="cert-provider">Internshala</div>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🎓</div>
+                <div class="cert-details">
+                    <div class="cert-name">Data Engineering & Visualization Program</div>
+                    <div class="cert-provider">HCL Technologies (Expected: March 2025)</div>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 
-</body>
-</html>
+<footer>
+    <p><strong>Laiba Fatima Khan</strong> | Data Analyst & Business Intelligence Specialist</p>
+    <p>Bangalore, India | Available for Full-Time Opportunities</p>
+    <div class="footer-links">
+        <a href="mailto:laibassvm123@gmail.com" class="footer-link">laibassvm123@gmail.com</a>
+        <a href="tel:+918318401462" class="footer-link">+91 8318401462</a>
+        <a href="https://linkedin.com/in/laiba-fatima-a5a0a528b" class="footer-link">LinkedIn Profile</a>
+        <a href="https://github.com/laibakhan26" class="footer-link">GitHub Portfolio</a>
+    </div>
+    <p
